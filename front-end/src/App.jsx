@@ -25,7 +25,7 @@ const routes = [{
     element: <ElixerListPage />
   },
   {
-    path: '/elixers/individual',
+    path: '/elixers/:name', // -> /elixers/elixer-hydration
     element: <ElixerPage />
   }]
 }]
