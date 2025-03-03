@@ -8,10 +8,12 @@ import AboutPage from './pages/AboutPage';
 import ElixerListPage from './pages/ElixerList';
 import ElixerPage from './pages/ElixerPage';
 import Layout from './Layout';
+import NotFoundPage from './pages/NotFoundPage';
 
 const routes = [{
   path: '/',
   element: <Layout />,
+  errorElement: <NotFoundPage />,
   children: [{
     path: '/',
     element: <HomePage />
