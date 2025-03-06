@@ -1,3 +1,4 @@
+// Start Server Command: npx nodemon src/server.js (script = dev)
 import express from "express";
 
 const elixerInfo = [
