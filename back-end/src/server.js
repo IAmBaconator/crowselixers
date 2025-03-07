@@ -2,11 +2,11 @@
 import express from "express";
 
 const elixerInfo = [
-    { name: 'elixer-hydration', upvotes: 0 },
-    { name: 'elixer-chillout', upvotes: 0 },
-    { name: 'elixer-bodyboost', upvotes: 0 },
-    { name: 'elixer-relaxation', upvotes: 0 },
-    { name: 'elixer-moodboost', upvotes: 0 }
+    { name: 'elixer-hydration', upvotes: 0, comments: [] },
+    { name: 'elixer-chillout', upvotes: 0, comments: [] },
+    { name: 'elixer-bodyboost', upvotes: 0, comments: [] },
+    { name: 'elixer-relaxation', upvotes: 0, comments: [] },
+    { name: 'elixer-moodboost', upvotes: 0, comments: [] }
 ]
 
 const app = express();
@@ -17,9 +17,23 @@ app.post('/api/elixers/:name/upvote', (req, res) => {
     const elixer = elixerInfo.find(e => e.name === req.params.name);
     elixer.upvotes += 1;
 
-    res.send('Success! The elixer ' + req.params.name + ' now has ' + elixer.upvotes + ' upvotes!');
+    //res.send('Success! The elixer ' + req.params.name + ' now has ' + elixer.upvotes + ' upvotes!');
+    res.json(elixer);
 });
 
+app.post('/api/elixers/:name/comments', (req, res) => {
+    const { name } = req.params;
+    const { postedBy, text } = req.body;
+
+    const elixer = elixerInfo.find(e => e.name === name);
+
+    elixer.comments.push({
+        postedBy,
+        text
+    });
+
+    res.json(elixer);
+});
 // app.get('/hello', function(req, res) {
 //     res.send('Hello ' + req.body.name + ' from a GET endpoint!');
 // });
