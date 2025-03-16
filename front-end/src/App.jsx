@@ -3,10 +3,11 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 import './App.css'
+import axios from 'axios';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ElixerListPage from './pages/ElixerList';
-import ElixerPage from './pages/ElixerPage';
+import ElixerPage, { loader as elixerLoader } from './pages/ElixerPage';
 import Layout from './Layout';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -28,7 +29,8 @@ const routes = [{
   },
   {
     path: '/elixers/:name', // -> /elixers/elixer-hydration
-    element: <ElixerPage />
+    element: <ElixerPage />,
+    loader: elixerLoader
   }]
 }]
 
