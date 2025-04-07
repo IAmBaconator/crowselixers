@@ -3,7 +3,6 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 import './App.css'
-import axios from 'axios';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ElixerListPage from './pages/ElixerList';

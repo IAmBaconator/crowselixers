@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'https://gzrgcc72-8000.usw3.devtunnels.ms',
-        changeOrigin: true
+        changeOrigin: true,
       }
     }
   }
